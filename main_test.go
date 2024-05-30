@@ -16,7 +16,7 @@ func TestAddHandler(t *testing.T) {
 		expected  string
 		wantError bool
 	}{
-		{"1", "2", "Result: 3", false},
+		{"1", "2", "Result: 4", false},
 		{"10", "20", "Result: 30", false},
 	}
 
