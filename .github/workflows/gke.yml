@@ -10,13 +10,37 @@ jobs:
   job_id:
     runs-on: ubuntu-latest
     steps:
+    
+    - uses: actions/checkout@v4
+    
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
         credentials_json: '${{ secrets.GCLOUD_AUTH }}'
 
+    - name: 'Run docker'
+      run: 'docker ps'
+    
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
 
     - name: 'Use gcloud CLI'
-      run: 'gcloud info'
+      run: 'gcloud info' 
+
+    - name: 'Use gcloud CLI to connect to cluster'
+      run: 'gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project self-424823'
+      
+    - name: 'Use gcloud CLI to connect to get kubectl'
+      run: 'gcloud components install kubectl'
+      
+    - name: 'Use kubectl to get all services'
+      run: 'kubectl get services'
+
+    - name: 'Use kubectl to get all services'
+      run: 'kubectl apply -f deployment.yaml'
+
+    - name: 'Use kubectl to get all services'
+      run: 'kubectl apply -f service.yaml'
+      
+    - name: 'Use kubectl to get all services'
+      run: 'kubectl apply -f ingress.yaml'
