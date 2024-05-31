@@ -23,6 +23,9 @@ jobs:
 
     - name: 'Use gcloud CLI to connect to cluster'
       run: 'gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project self-424823'
-
+      
+    - name: 'Use gcloud CLI to connect to get kubectl'
+      run: 'gcloud components install kubectl'
+      
     - name: 'Use kubectl to get all services'
       run: 'kubectl get services'
