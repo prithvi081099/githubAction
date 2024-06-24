@@ -18,6 +18,7 @@ func TestAddHandler(t *testing.T) {
 	}{
 		{"1", "2", "Result: 3", false},
 		{"10", "20", "Result: 30", false},
+		{"10", "23", "Result: 33", false},
 	}
 
 	for _, tt := range tests {
